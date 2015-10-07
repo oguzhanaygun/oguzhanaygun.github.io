@@ -1,25 +1,50 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
-  <body>
-  <center>
-  <br>
-  <br>
-  <br>
-  <form action="https://api.particle.io/v1/devices/250019000d47343432313031/led?access_token=ce5f0079d9f2e203d8a7c3b41e3bacdb115de32e" method="POST">
-    Tell your device what to do!<br>
-    <br>
-    <input type="radio" name="args" value="on">yak butun dunyayi
-    <br>
-    <br>
-    <input type="radio" name="args" value="off">sondur atesimi
-    <br>
-    <br>
-    <input type="radio" name="args" value="blink">yanarli donerli
-    <br>
-    <input type="submit" value="Do it!">
-  </form>
-  
+<head>
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+var renkler=["red","blue","black","yellow","green","grey","brown"];
+var x,z;
+var sayac=0;
+$(function(){
 
-  </center>
-  </body>
+    $("#p1").mouseenter(function(){
+        alert("You entered p1!");
+    });
+});
+$(document).ready(function(){
+	$("#h1").mouseenter(function(){
+			var y=Math.floor(Math.random()*7);
+		this.style.color=renkler[y];
+	})
+})
+$(document).ready(function(){
+	$("#h1").mouseleave(function(){
+		var y=Math.floor(Math.random()*7);
+	this.style.color=renkler[y];
+	})
+})
+$(document).ready(function(){
+	$("#h1").mouseenter(function(){
+		if(sayac==7){
+			alert("noldu tontiş yakalayamadın mı :D:D:D");
+			sayac=0;
+		}
+		y=Math.floor(Math.random()*600);
+		x=Math.floor(Math.random()*690);
+		$(this).css("margin-left" , x+"px");
+		$(this).css("margin-top" , y+"px");
+		sayac++;
+	});
+});
+
+</script>
+</head>
+<body>
+<h1  >SIKIYSA TIKLA!!</h1>
+<div id="h1"  style="height:100px; width:100px;  background-color:yellow; border-radius:30px;"></div>
+
+
+</body>
 </html>
